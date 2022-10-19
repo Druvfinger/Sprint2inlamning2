@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class Try2Main {
 
-    String CustomerFile = "src/Try2/Customers";
-    String CustomerLog = "src/Try2/CustomerLog";
+    String CustomerFile = "src/Try2/Customers.txt";
+    String CustomerLog = "src/Try2/CustomerLog.txt";
 
     public String getName(String line){
         String [] array = new String[2];
