@@ -1,9 +1,0 @@
-Skriv ett program där man skriver in en kunds personnummer eller namn
-där programmet söker programmet i filen för att visa upp om kunden
-1. är en nuvarande medelm (att åravgiften betalades för mindre än 1 år sedan)
-2. är en fd medlem (att åravgiften betalades för mer än 1 år sedan)
-3. inte är en medlem
-
-if (medelm)
-skriv till fil om kund är där
-skriv datum, namn, personnummer till personens fil
