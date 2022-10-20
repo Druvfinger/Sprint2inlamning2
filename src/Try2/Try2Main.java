@@ -1,6 +1,7 @@
 package Try2;
 
 import java.io.*;
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -21,8 +22,13 @@ public class Try2Main {
     }
 
     public LocalDate getLastPaymentDate (String line){
-        LocalDate date = LocalDate.parse(line);
-        return date;
+        try {
+            LocalDate date = LocalDate.parse(line);
+            return date;
+        }catch (DateTimeException e){
+            System.out.println("Invalid date" + line);
+            throw e;
+        }
     }
 
     public Boolean isMember(LocalDate date){
@@ -38,7 +44,7 @@ public class Try2Main {
                 System.out.println("name or id number:");
                 String input = scanner.nextLine();
                 if (input.isBlank()){
-                    System.out.println("Lämna inte fältet tomt!");
+                    System.out.println("You left the field empty!");
                     System.exit(0);
                 }
 
@@ -50,7 +56,7 @@ public class Try2Main {
                     String idNumber = getIdNumber(firstLine);
                     LocalDate lastPayment = getLastPaymentDate(secondLine);
 
-                    if (input.trim().equalsIgnoreCase(name.trim()) && isMember(lastPayment)
+                    if (input.trim().equalsIgnoreCase(name) && isMember(lastPayment)
                             || input.trim().equalsIgnoreCase(idNumber.trim()) && isMember(lastPayment)){
                         writer.write(LocalDate.now() + "," + getName(firstLine) + "\n");
                         System.out.println("Active Gym member");
