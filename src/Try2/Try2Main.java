@@ -30,7 +30,7 @@ public class Try2Main {
         return currentDate.minusYears(1).minusDays(1).isBefore(date);
     }
 
-    public Try2Main(){
+    public void Mainprog(){
 
             try (Scanner fileScanner = new Scanner(new File(CustomerFile));
                  BufferedWriter writer = new BufferedWriter(new FileWriter(CustomerLog,true))) {
@@ -43,11 +43,13 @@ public class Try2Main {
                 }
 
                 while(fileScanner.hasNext()) {
+
                     String firstLine = fileScanner.nextLine();
                     String secondLine = fileScanner.nextLine();
                     String name = getName(firstLine);
                     String idNumber = getIdNumber(firstLine);
                     LocalDate lastPayment = getLastPaymentDate(secondLine);
+
                     if (input.trim().equalsIgnoreCase(name.trim()) && isMember(lastPayment)
                             || input.trim().equalsIgnoreCase(idNumber.trim()) && isMember(lastPayment)){
                         writer.write(LocalDate.now() + "," + getName(firstLine) + "\n");
@@ -68,5 +70,6 @@ public class Try2Main {
 }
         public static void main(String[] args){
         Try2Main test = new Try2Main();
+        test.Mainprog();
     }
 }
